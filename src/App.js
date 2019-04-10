@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Summary from './Summary'
 
 class App extends Component {
   constructor(props){
@@ -85,17 +86,7 @@ class App extends Component {
             <h3>TECH SPECS AND CUSTOMIZATIONS</h3>
             { features }
           </section>
-          <section className="main__summary">
-            <h3>NEW GREENLEAF 2018</h3>
-            {summary}
-            <div className="summary__total">
-              <div className="summary__total__label">Your Price: </div>
-              <div className="summary__total__value">
-              { new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD'})
-                  .format(total) }
-              </div>
-            </div>
-          </section>
+         <Summary Items={this.state} />
         </main>
       </div>
     );
