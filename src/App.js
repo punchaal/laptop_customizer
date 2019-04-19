@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Summary from './Summary/Summary';
+import SummaryList from './Summary/SummaryList';
 import FeaturesList from './FeaturesList/FeaturesList';
 
 class App extends Component {
@@ -37,6 +37,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.props.features)
     return (
       <div className="App">
         <header>
@@ -45,11 +46,17 @@ class App extends Component {
           <h5>Customize your laptop</h5>  
         </header>      
         <main>
-        <FeaturesList items ={this.state}
+          <section className="main__form">
+          <h3>TECH SPECS AND CUSTOMIZATIONS</h3>
+        <FeaturesList items ={this.state.selected}
                       features={this.props.features}
                       onClickUpdate = {(feature,newValue)=>this.updateFeature(feature,newValue)} />
-        <Summary items = {this.state.selected}
+                      </section>
+                      <section className="main__summary">
+                      <h3>NEW GREENLEAF 2018</h3>
+        <SummaryList items = {this.state.selected}
                  />
+                 </section>
         </main>
       </div>
     );
